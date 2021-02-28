@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
         style={{
           margin: 0,
           padding: 0,
-          height: "100vh",
+          height: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
