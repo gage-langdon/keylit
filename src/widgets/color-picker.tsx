@@ -4,6 +4,7 @@ const COLORS = [
   {
     hex: "#FFFFFF",
     label: "Studio",
+    selectedBorderColor: "grey",
   },
   {
     hex: "#F4364C",
@@ -25,34 +26,41 @@ const COLORS = [
     hex: "#26D07C",
     label: "PNW",
   },
+  {
+    hex: "#ddb892",
+    label: "tan",
+  },
+  {
+    hex: "#90e0ef",
+    label: "clouds",
+  },
+  {
+    hex: "#ff7096",
+    label: "hush",
+  },
 ]
 
 const ColorPicker: React.FC<{ onChange: Function; value: string }> = ({
   onChange,
   value,
 }) => {
-  const onClick = (el, value) => {
-    onChange(value)
-  }
-
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "row",
+        justifyContent: "center",
         flexWrap: "nowrap",
         gap: "7px",
         overflowX: "auto",
-        // maxWidth: "200%",
-        paddingLeft: "calc(50%)",
-        paddingRight: "calc(50%)",
+        maxWidth: "100%",
       }}
     >
       {COLORS.map(color => (
         <button
           key={color.hex}
           type="button"
-          onClick={el => onClick(el, color.hex)}
+          onClick={() => onChange(color.hex)}
           style={{ background: "none", border: "none", outline: "none" }}
         >
           <div
@@ -70,7 +78,10 @@ const ColorPicker: React.FC<{ onChange: Function; value: string }> = ({
                 backgroundColor: color.hex,
                 borderRadius: "50px",
                 opacity: ".80",
-                border: value === color.hex ? "white 3px solid" : undefined,
+                border:
+                  value === color.hex
+                    ? `${color.selectedBorderColor || "white"} 3px solid`
+                    : undefined,
               }}
             />
           </div>
