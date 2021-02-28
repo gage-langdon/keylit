@@ -14,6 +14,7 @@ const Layout = ({ children }) => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          overflow: "hidden",
         }}
       >
         <main style={{ height: "100%", width: "100%" }}>{children}</main>
