@@ -32,7 +32,7 @@ const IndexPage = () => {
             bottom: 0,
           }}
         >
-          <TwitterPicker onChange={setbgColor} triangle={false} />
+          <TwitterPicker onChange={setbgColor} triangle="hide" />
           <div>
             <a
               href="https://gage-langdon.com"
