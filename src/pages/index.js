@@ -2,9 +2,10 @@ import React, { useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { TwitterPicker } from "react-color"
+import ColorPicker from "../widgets/color-picker"
 
 const IndexPage = () => {
-  const [{ hex: backgroundColor }, setbgColor] = useState({ hex: "#f78da7" })
+  const [backgroundColor, setbgColor] = useState("#f78da7")
 
   return (
     <Layout>
@@ -15,7 +16,7 @@ const IndexPage = () => {
       <div
         style={{
           backgroundColor,
-          height: "100%",
+          height: "calc(100vh)",
           width: "100%",
           display: "flex",
           flexDirection: "column",
@@ -24,27 +25,28 @@ const IndexPage = () => {
         <div
           style={{
             marginTop: "auto",
-            padding: "16px",
+            paddingBottom: "16px",
             display: "flex",
             flexDirection: "column",
             marginLeft: "auto",
-            position: "fixed",
             bottom: 0,
+            width: "100%",
           }}
         >
-          <TwitterPicker onChange={setbgColor} triangle="hide" />
-          <div>
+          <ColorPicker onChange={setbgColor} value={backgroundColor} />
+          {/* <div>
             <a
               href="https://gage-langdon.com"
               style={{
                 textDecoration: "none",
                 color: "white",
                 marginTop: "7px",
+                filter: "invert(100%)",
               }}
             >
               @gage-langdon
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </Layout>
