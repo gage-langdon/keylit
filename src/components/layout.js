@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
         style={{
           margin: 0,
           padding: 0,
-          height: "100%",
+          height: "100vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
