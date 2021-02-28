@@ -29,13 +29,13 @@ const Layout = ({ children }) => {
         style={{
           margin: 0,
           padding: 0,
-          height: "100vh",
+          height: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
         }}
       >
-        <main style={{ height: "100vh", width: "100%" }}>{children}</main>
+        <main style={{ height: "100%", width: "100%" }}>{children}</main>
       </div>
     </>
   )

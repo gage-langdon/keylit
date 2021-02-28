@@ -15,7 +15,7 @@ const IndexPage = () => {
       <div
         style={{
           backgroundColor,
-          height: "100vh",
+          height: "100%",
           width: "100%",
           display: "flex",
           flexDirection: "column",
@@ -28,13 +28,19 @@ const IndexPage = () => {
             display: "flex",
             flexDirection: "column",
             marginLeft: "auto",
+            position: "fixed",
+            bottom: 0,
           }}
         >
           <TwitterPicker onChange={setbgColor} triangle={false} />
-          <div style={{ marginTop: "7px", marginLeft: "auto" }}>
+          <div>
             <a
               href="https://gage-langdon.com"
-              style={{ textDecoration: "none", color: "white" }}
+              style={{
+                textDecoration: "none",
+                color: "white",
+                marginTop: "7px",
+              }}
             >
               @gage-langdon
             </a>
