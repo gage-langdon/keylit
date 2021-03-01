@@ -4,7 +4,12 @@ import SEO from "../components/seo"
 import ColorPicker from "../widgets/color-picker"
 
 const IndexPage = () => {
-  const [backgroundColor, setbgColor] = useState("#FFFFFF")
+  const [selectedColor, setbgColor] = useState({
+    hex: "#FFFFFF",
+    label: "Studio",
+    secondaryColor: "grey",
+  })
+  const { hex: backgroundColor, secondaryColor } = selectedColor
 
   return (
     <Layout>
@@ -31,7 +36,7 @@ const IndexPage = () => {
             width: "100%",
           }}
         >
-          <ColorPicker onChange={setbgColor} value={backgroundColor} />
+          <ColorPicker onChange={setbgColor} value={selectedColor} />
           <div
             style={{
               bottom: 0,
@@ -46,10 +51,9 @@ const IndexPage = () => {
               href="https://gage-langdon.com"
               style={{
                 textDecoration: "none",
-                color: "black",
+                color: secondaryColor || "white",
                 marginTop: "7px",
                 marginRight: "7px",
-                opacity: ".80",
                 marginLeft: "auto",
               }}
             >
