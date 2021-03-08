@@ -5,10 +5,7 @@ import ColorPicker from "../widgets/color-picker"
 
 const IndexPage = () => {
   const [selectedColor, setbgColor] = useState({
-    hex: "#ddb892",
-    label: "Studio",
-    secondaryColor: "white",
-    textColor: "black",
+    hex: "black",
   })
   const { hex: backgroundColor, secondaryColor } = selectedColor
 

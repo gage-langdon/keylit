@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react"
 
 const COLORS = [
   {
-    hex: "#ddb892",
-    label: "tan",
-    textColor: "black",
-  },
-  {
     hex: "#FFFFFF",
     label: "Studio",
     secondaryColor: "grey",
+  },
+  {
+    hex: "#ddb892",
+    label: "tan",
+  },
+  {
+    hex: "#ff7096",
+    label: "hush",
   },
   {
     hex: "#F4364C",
@@ -36,26 +39,27 @@ const COLORS = [
     hex: "#90e0ef",
     label: "clouds",
   },
-  {
-    hex: "#ff7096",
-    label: "hush",
-  },
 ]
 
 const ColorPicker: React.FC<{
   onChange: Function
-  value: { hex: string; secondaryColor: string; textColor: string }
+  value: { hex: string; secondaryColor: string }
 }> = ({ onChange, value }) => {
   const [helpTextActive, setHelpTextActive] = useState(true)
 
-  const colorScrollAnim = async () => {
-    for (let i = 0; i < COLORS.length; i++) {
-      onChange(COLORS[i])
-      await new Promise(r => setTimeout(r, 100))
-      document.getElementById(COLORS[i].hex).scrollIntoView()
-    }
+  // scroll through colors animation at start
+  useEffect(() => {
     onHelp()
-  }
+  }, [])
+
+  // const colorScrollAnim = async () => {
+  //   for (let i = 0; i < COLORS.length; i++) {
+  //     onChange(COLORS[i])
+  //     await new Promise(r => setTimeout(r, 100))
+  //     document.getElementById(COLORS[i].hex).scrollIntoView()
+  //   }
+  //   onHelp()
+  // }
 
   const onHelp = () => {
     onChange({ hex: "black" })
@@ -166,13 +170,7 @@ const ColorPicker: React.FC<{
             justifyContent: "center",
           }}
         >
-          <div
-            style={{
-              width: "75%",
-              opacity: ".85",
-              color: value.textColor || "white",
-            }}
-          >
+          <div style={{ width: "75%", opacity: ".85" }}>
             <h1>Keylit.app</h1>
             <p>
               - A <b>keylight</b> is the most important light that a
