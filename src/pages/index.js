@@ -5,9 +5,10 @@ import ColorPicker from "../widgets/color-picker"
 
 const IndexPage = () => {
   const [selectedColor, setbgColor] = useState({
-    hex: "#FFFFFF",
+    hex: "#ddb892",
     label: "Studio",
-    secondaryColor: "grey",
+    secondaryColor: "white",
+    textColor: "black",
   })
   const { hex: backgroundColor, secondaryColor } = selectedColor
 
@@ -37,30 +38,35 @@ const IndexPage = () => {
           }}
         >
           <ColorPicker onChange={setbgColor} value={selectedColor} />
+        </div>
+        <footer style={{ position: "fixed", bottom: 0 }}>
           <div
             style={{
               bottom: 0,
               position: "fixed",
               display: "flex",
               width: "100%",
-              paddingBottom: "7px",
+              paddingRight: "16px",
+
               backgroundColor,
             }}
           >
             <a
-              href="https://gage-langdon.com"
-              style={{
-                textDecoration: "none",
-                color: secondaryColor || "white",
-                marginTop: "7px",
-                marginRight: "7px",
-                marginLeft: "auto",
-              }}
+              href="https://www.buymeacoffee.com/gagelangdon"
+              target="_blank"
+              style={{ marginLeft: "auto" }}
             >
-              @gage-langdon
+              <img
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                alt="Buy Me A Coffee"
+                style={{
+                  height: "50px !important",
+                  width: "200px !important",
+                }}
+              />
             </a>
           </div>
-        </div>
+        </footer>
       </div>
     </Layout>
   )

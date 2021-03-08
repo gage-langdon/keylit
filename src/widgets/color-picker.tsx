@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react"
 
 const COLORS = [
   {
+    hex: "#ddb892",
+    label: "tan",
+    textColor: "black",
+  },
+  {
     hex: "#FFFFFF",
     label: "Studio",
     secondaryColor: "grey",
   },
-
   {
     hex: "#F4364C",
     label: "Campfire",
@@ -27,10 +31,7 @@ const COLORS = [
     hex: "#26D07C",
     label: "PNW",
   },
-  {
-    hex: "#ddb892",
-    label: "tan",
-  },
+
   {
     hex: "#90e0ef",
     label: "clouds",
@@ -43,14 +44,9 @@ const COLORS = [
 
 const ColorPicker: React.FC<{
   onChange: Function
-  value: { hex: string; secondaryColor: string }
+  value: { hex: string; secondaryColor: string; textColor: string }
 }> = ({ onChange, value }) => {
   const [helpTextActive, setHelpTextActive] = useState(true)
-
-  // scroll through colors animation at start
-  useEffect(() => {
-    colorScrollAnim()
-  }, [])
 
   const colorScrollAnim = async () => {
     for (let i = 0; i < COLORS.length; i++) {
@@ -170,7 +166,13 @@ const ColorPicker: React.FC<{
             justifyContent: "center",
           }}
         >
-          <div style={{ width: "75%", opacity: ".85" }}>
+          <div
+            style={{
+              width: "75%",
+              opacity: ".85",
+              color: value.textColor || "white",
+            }}
+          >
             <h1>Keylit.app</h1>
             <p>
               - A <b>keylight</b> is the most important light that a
