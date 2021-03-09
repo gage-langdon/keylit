@@ -51,7 +51,11 @@ const IndexPage = () => {
             <a
               href="https://www.buymeacoffee.com/gagelangdon"
               target="_blank"
-              style={{ marginLeft: "auto" }}
+              style={{
+                marginLeft: "auto",
+                height: "50px !important",
+                width: "200px !important",
+              }}
             >
               <img
                 src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
