@@ -36,38 +36,6 @@ const IndexPage = () => {
         >
           <ColorPicker onChange={setbgColor} value={selectedColor} />
         </div>
-        <footer style={{ position: "fixed", bottom: 0 }}>
-          <div
-            style={{
-              bottom: 0,
-              position: "fixed",
-              display: "flex",
-              width: "100%",
-              paddingRight: "16px",
-
-              backgroundColor,
-            }}
-          >
-            <a
-              href="https://www.buymeacoffee.com/gagelangdon"
-              target="_blank"
-              style={{
-                marginLeft: "auto",
-                height: "50px !important",
-                width: "200px !important",
-              }}
-            >
-              <img
-                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-                alt="Buy Me A Coffee"
-                style={{
-                  height: "50px !important",
-                  width: "200px !important",
-                }}
-              />
-            </a>
-          </div>
-        </footer>
       </div>
     </Layout>
   )
