@@ -3,42 +3,23 @@ import React, { useState, useEffect } from "react"
 const COLORS = [
   {
     hex: "#FFFFFF",
-    label: "Studio",
-    secondaryColor: "grey",
+    secondaryColor: "black",
   },
   {
     hex: "#ddb892",
-    label: "tan",
   },
-  {
-    hex: "#ff7096",
-    label: "hush",
-  },
+ 
   {
     hex: "#F4364C",
-    label: "Campfire",
   },
   {
-    hex: "#2AF5C9",
-    label: "Breeze",
+    hex: "#eb9336",
   },
   {
-    hex: "#FFEF00",
-    label: "Banana",
-  },
-  {
-    hex: "#AC4FC6",
-    label: "Ballard",
-  },
-  {
-    hex: "#26D07C",
-    label: "PNW",
-  },
+    hex: "#c4f5f3",
+    secondaryColor: "#2b3b3a",
+  } 
 
-  {
-    hex: "#90e0ef",
-    label: "clouds",
-  },
 ]
 
 const ColorPicker: React.FC<{
@@ -48,8 +29,9 @@ const ColorPicker: React.FC<{
   const [helpTextActive, setHelpTextActive] = useState(true)
 
   // scroll through colors animation at start
+
   useEffect(() => {
-    onHelp()
+    // onHelp()
   }, [])
 
   // const colorScrollAnim = async () => {
@@ -79,13 +61,15 @@ const ColorPicker: React.FC<{
           style={{
             display: "flex",
             flexDirection: "row",
-            justifyContent: "center",
+            justifyContent: "start",
             flexWrap: "nowrap",
             gap: "7px",
-            maxWidth: "100%",
+            maxWidth: "100vw",
             paddingTop: "7px",
+            paddingLeft: "12px",
             position: "fixed",
-            overflowX: "auto",
+             overflowX: "auto",
+             scrollbarWidth: "none",
           }}
         >
           {COLORS.map(color => (
@@ -141,7 +125,6 @@ const ColorPicker: React.FC<{
               style={{
                 height: "3rem",
                 width: "3rem",
-                //   backgroundColor: "white",
                 borderRadius: "50px",
                 opacity: ".85",
                 display: "flex",
@@ -149,8 +132,7 @@ const ColorPicker: React.FC<{
                 alignItems: "center",
                 cursor: "pointer",
                 fontSize: "2rem",
-                filter: "invert(100%)",
-                color: value.secondaryColor || "black",
+                color: value.secondaryColor || "white",
                 border: value.hex === "black" ? `grey 3px solid` : undefined,
               }}
             >
@@ -170,16 +152,16 @@ const ColorPicker: React.FC<{
             justifyContent: "center",
           }}
         >
-          <div style={{ width: "75%", opacity: ".85" }}>
+          <div style={{ width: "75%", opacity: ".84" }}>
             <h1>Keylit.app</h1>
-            <p>
-              - A <b>keylight</b> is the most important light that a
-              photographer utilizes to highlight the form and dimension of the
-              subject
-            </p>
             <p>
               Use this app on a secondary monitor or position the window behind
               your video call to add light to your face
+            </p>
+            <p style={{ opacity: ".60" }}>
+              - A <b>keylight</b> is the most important light that a
+              photographer utilizes to highlight the form and dimension of the
+              subject
             </p>
           </div>
         </div>

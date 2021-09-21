@@ -4,10 +4,10 @@ import SEO from "../components/seo"
 import ColorPicker from "../widgets/color-picker"
 
 const IndexPage = () => {
-  const [selectedColor, setbgColor] = useState({
-    hex: "black",
-  })
-  const { hex: backgroundColor, secondaryColor } = selectedColor
+  const defaultColorOnLoad = "black"
+  const [selectedColor, setbgColor] = useState({ hex: defaultColorOnLoad })
+  const backgroundColor = selectedColor.hex
+  const secondaryColor = selectedColor.secondaryColor
 
   return (
     <>
@@ -18,7 +18,7 @@ const IndexPage = () => {
         />
         <div
           style={{
-            backgroundColor,
+            backgroundColor: backgroundColor,
             height: "calc(100vh)",
             width: "100%",
             display: "flex",
@@ -27,15 +27,25 @@ const IndexPage = () => {
         >
           <div
             style={{
-              marginBottom: "auto",
-              paddingTop: "16px",
+              backgroundColor,
+              height: "calc(100vh)",
+              width: "100%",
               display: "flex",
               flexDirection: "column",
-              marginLeft: "auto",
-              width: "100%",
             }}
           >
-            <ColorPicker onChange={setbgColor} value={selectedColor} />
+            <div
+              style={{
+                marginBottom: "auto",
+                paddingTop: "16px",
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "auto",
+                width: "100%",
+              }}
+            >
+              <ColorPicker onChange={setbgColor} value={selectedColor} />
+            </div>
           </div>
         </div>
       </Layout>
@@ -46,6 +56,9 @@ const IndexPage = () => {
           left: 0,
           width: "100vw",
           color: secondaryColor || "white",
+          paddingRight: "7px",
+          textAlign: "end",
+          fontSize: "9px",
         }}
       >
         Built by Ian and Gage
