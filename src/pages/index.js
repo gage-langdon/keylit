@@ -4,11 +4,12 @@ import SEO from "../components/seo"
 import ColorPicker from "../widgets/color-picker"
 
 const IndexPage = () => {
-  const [selectedColor, setbgColor] = useState({
-    hex: "black",
-  })
-  const { hex: backgroundColor, secondaryColor } = selectedColor
 
+  const defaultColorOnLoad = "black";
+  const [selectedColor, setbgColor] = useState({hex: defaultColorOnLoad})
+  const backgroundColor = selectedColor.hex;
+  const secondaryColor = selectedColor.secondaryColor;
+ 
   return (
     <Layout>
       <SEO
@@ -17,7 +18,7 @@ const IndexPage = () => {
       />
       <div
         style={{
-          backgroundColor,
+          backgroundColor: backgroundColor,
           height: "calc(100vh)",
           width: "100%",
           display: "flex",
